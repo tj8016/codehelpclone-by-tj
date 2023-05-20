@@ -64,7 +64,7 @@
 <body>
     <div class="m-0 p-0 w-[100vw] h-[100vh] overflow-x-hidden overflow-y-auto relative">
         <!-- navbar -->
-        <section class="fixed w-[100%] z-[9999] bg-[#f7f8fc] top-0 flex items-center justify-center"
+        <section class="fixed w-[100%] z-[9999] bg-[#f7f8fc] top-0 flex flex-col items-center justify-center"
             style="box-shadow: rgba(157, 157, 157, 0.2) 0px 4px 10px;">
             <nav class="w-[95%] max-w-[1300px] h-[100%] py-4 mx-auto flex flex-row justify-between items-center">
                 <!-- logo -->
@@ -118,7 +118,7 @@
                 </div>
 
                 <div class="flex items-center md:hidden">
-                    <div class="relative flex h-[52px] w-[66px cursor-pointer flex-col items-end justify-between p-[0.8rem] md:hidden">
+                    <div id="toggle" class="toggle relative flex h-[52px] w-[66px cursor-pointer flex-col items-end justify-between p-[0.8rem] transition-all duration-300 md:hidden" onclick="toggleBar()">
                         <span class="w-10 rounded-md py-[2px] false bg-black transition-all duration-300"></span>
                         <span class="w-8 py-[2px] rounded-md bg-black transition-all duration-300"></span>
                         <span class="w-6 false rounded-md bg-black py-[2px] transition-all duration-300"></span>
@@ -134,6 +134,33 @@
                     </svg>
                 </div>
             </nav>
+
+            <div id="mobile-nav" class="mobile-nav md:hidden absolute top-full left-0 right-0 z-[9998] backdrop-blur-lg flex flex-col justify-center items-center pt-[10vh] pb-[8vh] font-rubik opacity-0 pointer-events-auto visible transition-all duration-300" 
+            style="background-color: rgba(255, 255, 255, 0.25); box-shadow: rgba(157, 157, 157, 0.2) 0px 4px 10px;">
+                <ul class="flex flex-col items-center gap-y-6 md:hidden select-none">
+                    <li class="text-center font-rubik text-xl leading-5">About</li>
+                    <li class="text-center font-rubik text-xl leading-5">Courses</li>
+                    <li class="text-center font-rubik text-xl leading-5">Labs</li>
+                    <li class="text-center font-rubik text-xl leading-5">Contact</li>
+                </ul>
+                <div class="mobile-nab-btn mt-6 flex w-full flex-col items-center justify-center md:hidden">
+                    <button class="font-rubik text-lg py-2 px-9
+                    border cursor-pointer bg-white
+                    rounded-md flex flex-row items-center">Dashboard</button>
+
+                    <button class="font-rubik text-lg text-[#fff] py-2 px-11 mt-6
+                    border cursor-pointer border-firstColor bg-firstColor
+                    rounded-md flex flex-row items-center">Login
+                        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
+                            stroke-linecap="round" stroke-linejoin="round" class="ml-2 text-xl" height="1em" width="1em"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                            <polyline points="10 17 15 12 10 7"></polyline>
+                            <line x1="15" y1="12" x2="3" y2="12"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </section>
         <div class="mt-[85px]">
             <!-- Home -->
@@ -640,6 +667,7 @@
             backDelay: 1000,
         });
     </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
