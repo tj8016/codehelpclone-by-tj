@@ -118,7 +118,7 @@
                 </div>
 
                 <div class="flex items-center md:hidden">
-                    <div id="toggle" class="toggle relative flex h-[52px] w-[66px cursor-pointer flex-col items-end justify-between p-[0.8rem] transition-all duration-300 md:hidden" onclick="toggleBar()">
+                    <div id="toggle" class="toggle relative flex h-[52px] w-[66px] cursor-pointer flex-col items-end justify-between p-[0.8rem] transition-all duration-300 md:hidden" onclick="toggleBar()">
                         <span class="w-10 rounded-md py-[2px] false bg-black transition-all duration-300"></span>
                         <span class="w-8 py-[2px] rounded-md bg-black transition-all duration-300"></span>
                         <span class="w-6 false rounded-md bg-black py-[2px] transition-all duration-300"></span>
@@ -135,7 +135,7 @@
                 </div>
             </nav>
 
-            <div id="mobile-nav" class="mobile-nav md:hidden absolute top-full left-0 right-0 z-[9998] backdrop-blur-lg flex flex-col justify-center items-center pt-[10vh] pb-[8vh] font-rubik opacity-0 pointer-events-auto visible transition-all duration-300" 
+            <div id="mobile-nav" class="mobile-nav hidden md:hidden absolute top-full left-0 right-0 z-[9998] backdrop-blur-lg flex flex-col justify-center items-center pt-[10vh] pb-[8vh] font-rubik pointer-events-auto visible transition-all duration-300" 
             style="background-color: rgba(255, 255, 255, 0.25); box-shadow: rgba(157, 157, 157, 0.2) 0px 4px 10px;">
                 <ul class="flex flex-col items-center gap-y-6 md:hidden select-none">
                     <li class="text-center font-rubik text-xl leading-5">About</li>
@@ -673,8 +673,7 @@
         let visible = false;
         let toggleBar = () => {
             if(visible) {
-                mobileNav.classList.remove('opacity-1')
-                mobileNav.classList.add('opacity-0');
+                mobileNav.classList.add('hidden');
                 toggle.children[0].classList.remove('absolute', 'top-1/2', 'rotate-45');
                 toggle.children[1].classList.remove('opacity-0');
                 toggle.children[2].classList.add('w-6')
@@ -682,8 +681,7 @@
                 visible = false;
             }
             else {
-                mobileNav.classList.remove('opacity-0')
-                mobileNav.classList.add('opacity-1');
+                mobileNav.classList.remove('hidden')
                 toggle.children[0].classList.add('absolute', 'top-1/2', 'rotate-45');
                 toggle.children[1].classList.add('opacity-0');
                 toggle.children[2].classList.remove('w-6')
